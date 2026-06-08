@@ -1,0 +1,86 @@
+.sideCard {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: fit-content;
+}
+
+.sideCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.listScrollable {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  flex: 1;
+}
+
+.activityItem {
+  display: flex;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.activityItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 12px;
+  bottom: -22px;
+  width: 2px;
+  background-color: var(--border-color);
+}
+
+.activityDot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  border: 3px solid var(--bg-secondary);
+  z-index: 1;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.activityContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-bottom: 0.25rem;
+}
+
+.activityDesc {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.activityTime {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.shortcutLink {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.shortcutLink:hover {
+  color: var(--primary-dark, #312e81);
+}

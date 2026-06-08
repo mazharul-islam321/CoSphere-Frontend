@@ -1,0 +1,12 @@
+.avatarCircle {
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  user-select: none;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}

@@ -1,0 +1,65 @@
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Status colors */
+.statusACTIVE, .statusActive {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.statusCOMPLETED, .statusCompleted {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.statusON_HOLD, .statusOnHold, .statusON-HOLD {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+.statusTODO, .statusTodo {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+.statusIN_PROGRESS, .statusInProgress, .statusIN-PROGRESS {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+/* Priority variants (smaller and square-ish) */
+.priorityBadge {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.priorityHIGH {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+.priorityMEDIUM {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+.priorityLOW {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
