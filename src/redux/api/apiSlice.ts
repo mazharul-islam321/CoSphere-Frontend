@@ -20,6 +20,8 @@ const baseQuery = fetchBaseQuery({
 
 const customBaseQuery = async (args: any, api: any, extraOptions: any) => {
 	const result = await baseQuery(args, api, extraOptions);
+	const url = typeof args === "string" ? args : args?.url;
+
 	if (result.data) {
 		const responseData = result.data as any;
 		if (
@@ -28,10 +30,27 @@ const customBaseQuery = async (args: any, api: any, extraOptions: any) => {
 			"success" in responseData
 		) {
 			if (responseData.success && responseData.data !== undefined) {
+				const data = responseData.data;
+				if (
+					url &&
+					(url.includes("/auth/login") ||
+						url.includes("/auth/signup"))
+				) {
+					if (data && data.token && typeof window !== "undefined") {
+						localStorage.setItem("cosphere_token", data.token);
+					}
+				}
 				return { ...result, data: responseData.data };
 			}
 		}
 	}
+
+	if (url && url.includes("/auth/logout")) {
+		if (typeof window !== "undefined") {
+			localStorage.removeItem("cosphere_token");
+		}
+	}
+
 	return result;
 };
 
