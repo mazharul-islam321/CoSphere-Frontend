@@ -1,25 +1,25 @@
-# Smart Project System - Frontend Web Client
+# CoSphere - Frontend Web Client
 
-This is the standalone frontend web client for the Smart Project System. It is built using Next.js (App Router), TypeScript, Redux Toolkit (RTK Query), and Vanilla CSS.
+This is the standalone frontend web client for CoSphere. It is built using Next.js (App Router), TypeScript, Redux Toolkit (RTK Query), and Vanilla CSS.
 
 ---
 
 ## Features Overview
 
-* **Kanban Task Board**: Intuitive status columns (To Do, In Progress, Completed) with visual task cards.
-* **Detailed Task Dialog**: 
-  - Manage assignees, due dates, description details, and priorities.
-  - Interactive discussion feed (comments) and file attachments.
-* **Smart Permissions System**: UI dynamically hides/shows creation, editing, status updates, and comment/upload fields depending on your role (Admin, Manager, Member, or Assignee).
-* **Filters & Infinite Scroll**: Fast client-side filtering (priority, status, assigned member, due date ranges) and search with dynamic scroll-to-load page loading.
-* **Aesthetic Dark Mode**: Curated, harmonious color system (glassmorphic layouts, harmonized HSL-based dark mode tokens) with fluid micro-animations.
-* **Dashboard Hub**: Visual summaries of active workloads, overdue assignments, and task counts.
+*   **Kanban Task Board**: Intuitive status columns (To Do, In Progress, Completed) with visual task cards.
+*   **Detailed Task Dialog**: 
+    *   Manage assignees, due dates, description details, and priorities.
+    *   Interactive discussion feed (comments) and file attachments.
+*   **Smart Permissions System**: UI dynamically hides/shows creation, editing, status updates, and comment/upload fields depending on your role (Admin, Manager, Member, or Assignee).
+*   **Filters & Infinite Scroll**: Fast client-side filtering (priority, status, assigned member, due date ranges) and search with dynamic scroll-to-load page loading.
+*   **Aesthetic Dark Mode**: Curated, harmonious color system (glassmorphic layouts, HSL-based dark mode tokens) with fluid micro-animations.
+*   **Dashboard Hub**: Visual summaries of active workloads, overdue assignments, and task counts.
 
 ---
 
 ## Environment Variables
 
-Create a `.env.local` file in the root of the `frontend/` directory to configure connection parameters:
+Create a `.env.local` file in the root of the `CoSphere-Frontend` directory to configure connection parameters:
 
 | Variable | Description | Default / Dev Value |
 | :--- | :--- | :--- |
@@ -63,7 +63,7 @@ npm start
 
 ## Demo Credentials
 
-You can use the following pre-seeded users for testing and grading (all users share the password `Password123`):
+All seed accounts use the default password: **`Password123`**
 
 | Email | Name | Role | Access Level |
 | :--- | :--- | :--- | :--- |
@@ -78,12 +78,12 @@ You can use the following pre-seeded users for testing and grading (all users sh
 ## Deployment Instructions
 
 ### Prerequisites
-* A hosting platform specialized in static/serverless frontend hosting (e.g. Vercel, Netlify, Cloudflare Pages).
-* Your backend API must already be deployed and accessible.
+*   A hosting platform specialized in static/serverless frontend hosting (e.g. Vercel, Netlify, Cloudflare Pages).
+*   Your backend API must already be deployed and accessible.
 
-### Step-by-Step Deployment (e.g., Vercel):
-1. **Import the Project**: Link your GitHub repository.
-2. **Configure Root Directory**: In the project settings, set the **Root Directory** to `frontend`.
-3. **Configure Environment Variables**:
-   Add `NEXT_PUBLIC_API_URL` as a production environment variable and set it to your deployed backend API URL (e.g., `https://my-backend-app.railway.app/api`).
-4. **Deploy**: Vercel will auto-detect the Next.js setup, install dependencies, run `npm run build`, and deploy the application.
+### Step-by-Step Deployment (e.g. Vercel):
+1.  **Import the Project**: Link your GitHub repository.
+2.  **Configure Root Directory**: In the project settings, set the **Root Directory** to `CoSphere-Frontend` (if deploying from a monorepo, otherwise leave blank).
+3.  **Configure Environment Variables**:
+    Add `NEXT_PUBLIC_API_URL` as a production environment variable and set it to your deployed backend API URL (e.g., `https://cosphere-backend.onrender.com/api`).
+4.  **Deploy**: Vercel will auto-detect the Next.js setup, install dependencies, run `npm run build`, and deploy the application.
