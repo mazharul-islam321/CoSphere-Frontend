@@ -7,6 +7,15 @@ const API_BASE_URL =
 const baseQuery = fetchBaseQuery({
 	baseUrl: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5050/api",
 	credentials: "include", // Support HTTP-only cookie JWT propagation
+	prepareHeaders: (headers) => {
+		if (typeof window !== "undefined") {
+			const token = localStorage.getItem("cosphere_token");
+			if (token) {
+				headers.set("Authorization", `Bearer ${token}`);
+			}
+		}
+		return headers;
+	},
 });
 
 const customBaseQuery = async (args: any, api: any, extraOptions: any) => {

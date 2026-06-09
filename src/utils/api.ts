@@ -18,6 +18,14 @@ export const apiFetch = async (endpoint: string, options: RequestInit = {}) => {
 		headers.set("Content-Type", "application/json");
 	}
 
+	// Attach Authorization Bearer token if it exists in localStorage
+	if (typeof window !== "undefined") {
+		const token = localStorage.getItem("cosphere_token");
+		if (token) {
+			headers.set("Authorization", `Bearer ${token}`);
+		}
+	}
+
 	const response = await fetch(url, {
 		...options,
 		headers,

@@ -73,6 +73,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 				method: "POST",
 				body: JSON.stringify({ email, password }),
 			});
+			if (data.token) {
+				localStorage.setItem("cosphere_token", data.token);
+			}
 			setUser(data.user);
 		} catch (err: any) {
 			setError(err.message || "Login failed. Please verify credentials.");
@@ -92,6 +95,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 				method: "POST",
 				body: JSON.stringify({ email, password, name, role }),
 			});
+			if (data.token) {
+				localStorage.setItem("cosphere_token", data.token);
+			}
 			setUser(data.user);
 		} catch (err: any) {
 			setError(err.message || "Signup failed. Please try again.");
@@ -105,6 +111,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 		} catch (err) {
 			console.error("Logout API request error:", err);
 		} finally {
+			localStorage.removeItem("cosphere_token");
 			setUser(null);
 		}
 	};
