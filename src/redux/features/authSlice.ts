@@ -23,15 +23,21 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setCredentials: (state, action: PayloadAction<User>) => {
+    setCredentials: (state, action: PayloadAction<User & { token?: string }>) => {
       state.user = action.payload;
       state.error = null;
       state.loading = false;
+      if (typeof window !== 'undefined' && action.payload.token) {
+        localStorage.setItem('cosphere_token', action.payload.token);
+      }
     },
     clearCredentials: (state) => {
       state.user = null;
       state.error = null;
       state.loading = false;
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('cosphere_token');
+      }
     },
     setAuthLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;

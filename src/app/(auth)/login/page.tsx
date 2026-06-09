@@ -42,7 +42,7 @@ export default function Login() {
 		setError(null);
 		try {
 			const data = await loginTrigger({ email, password }).unwrap();
-			dispatch(setCredentials(data.user));
+			dispatch(setCredentials({ ...data.user, token: data.token }));
 			router.push("/dashboard");
 		} catch (err: any) {
 			setError(
@@ -59,7 +59,7 @@ export default function Login() {
 				email: roleEmail,
 				password: "Password123",
 			}).unwrap();
-			dispatch(setCredentials(data.user));
+			dispatch(setCredentials({ ...data.user, token: data.token }));
 			router.push("/dashboard");
 		} catch (err: any) {
 			setError(err?.data?.message || "Demo login failed.");

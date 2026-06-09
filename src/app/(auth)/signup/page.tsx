@@ -49,7 +49,7 @@ export default function Signup() {
 				name,
 				role,
 			}).unwrap();
-			dispatch(setCredentials(data.user));
+			dispatch(setCredentials({ ...data.user, token: data.token }));
 			router.push("/dashboard");
 		} catch (err: any) {
 			setError(err?.data?.message || "Signup failed. Please try again.");
