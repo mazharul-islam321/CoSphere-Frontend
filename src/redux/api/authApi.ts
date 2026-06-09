@@ -4,7 +4,7 @@ import { User } from "../features/authSlice";
 
 export const authApi = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
-		login: builder.mutation<{ user: User }, any>({
+		login: builder.mutation<{ user: User; token: string }, any>({
 			query: (credentials) => ({
 				url: "/auth/login",
 				method: "POST",
@@ -13,7 +13,7 @@ export const authApi = apiSlice.injectEndpoints({
 			invalidatesTags: ["Dashboard", "User"],
 		}),
 
-		signup: builder.mutation<{ user: User }, any>({
+		signup: builder.mutation<{ user: User; token: string }, any>({
 			query: (userData) => ({
 				url: "/auth/signup",
 				method: "POST",
